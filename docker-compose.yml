@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  postgresql:
+    container_name: postgresql
+    build: ./postgresql
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: db
+  my-client:
+    depends_on: ["postgresql"]
+    container_name: my-client
+    build: ./my-client
+    environment:
+      - ROW_COUNT_LOG10=$ROW_COUNT_LOG10
+  psql-client:
+    depends_on: ["postgresql"]
+    container_name: psql-client
+    build: ./psql-client
+    environment:
+      - ROW_COUNT_LOG10=$ROW_COUNT_LOG10

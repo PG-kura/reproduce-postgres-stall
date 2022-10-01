@@ -1,0 +1,12 @@
+[package]
+name = "my-client"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0"
+futures-util = "0.3"
+tokio = { version = "1", features = ["full"] }
+tokio-postgres = { git = "https://github.com/sfackler/rust-postgres.git", branch = "master", features = ["with-chrono-0_4"]}
